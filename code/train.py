@@ -90,8 +90,9 @@ def train(net, writer, batch=48, train_seq_num = 10, test_seq_num = 10, total_it
             path = out_weight_folder + "_%07d"%(iteration+start_point)+".weight"
             torch.save(net.state_dict(), path)
 
-print ("################Training#####################")
-net = Graph_MLP()
-writer = SummaryWriter('./runs/')
-train(net, writer, batch=128, train_seq_num = 7, test_seq_num=7, total_iter=100, 
-        data_path_root = "../data/sphere_dataset/", out_weight_folder="./weight/")
+if __name__ == '__main__':
+    print ("################Training#####################")
+    net = Graph_MLP()
+    writer = SummaryWriter('./runs/')
+    train(net, writer, batch=128, train_seq_num = 7, test_seq_num=7, total_iter=100, 
+            data_path_root = "../data/sphere_dataset/", out_weight_folder="./weight/")
